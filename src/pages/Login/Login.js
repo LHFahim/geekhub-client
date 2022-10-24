@@ -1,3 +1,4 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
@@ -5,12 +6,13 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 const Login = () => {
   const [error, setError] = useState('');
 
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleProviderLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
   const from = location.state?.from?.pathname || '/';
 
+  // email pass login
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.target;
@@ -31,9 +33,24 @@ const Login = () => {
       });
   };
 
+  // google login
+  const googleProvider = new GoogleAuthProvider();
+
+  const handleGoogleSignIn = () => {
+    googleProviderLogin(googleProvider)
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch(error => console.error(error));
+  };
+
+  // github sign in
+  const handleGithubSignIn = () => {};
+
   return (
     <div>
-      <h1>Hello</h1>
+      <h1>Login </h1>
       <div className="w-4/12 ">
         <form onSubmit={handleSubmit}>
           <div className="mb-6">
@@ -70,6 +87,20 @@ const Login = () => {
           </button>
         </form>
         <p>{error}</p>
+        <div>
+          <button
+            onClick={handleGoogleSignIn}
+            className="py-3 px-5 bg-yellow-300 rounded-2xl"
+          >
+            Login with Google
+          </button>
+          <button
+            onClick={handleGithubSignIn}
+            className="py-3 px-5 bg-zinc-700 rounded-2xl text-white"
+          >
+            Login with Github
+          </button>
+        </div>
       </div>
     </div>
   );
