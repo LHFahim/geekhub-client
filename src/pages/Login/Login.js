@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
@@ -6,9 +6,12 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 const Login = () => {
   const [error, setError] = useState('');
 
-  const { signIn, googleProviderLogin } = useContext(AuthContext);
+  const { signIn, providerLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   const from = location.state?.from?.pathname || '/';
 
@@ -34,10 +37,9 @@ const Login = () => {
   };
 
   // google login
-  const googleProvider = new GoogleAuthProvider();
 
   const handleGoogleSignIn = () => {
-    googleProviderLogin(googleProvider)
+    providerLogin(googleProvider)
       .then(result => {
         const user = result.user;
         console.log(user);
@@ -46,7 +48,14 @@ const Login = () => {
   };
 
   // github sign in
-  const handleGithubSignIn = () => {};
+  const handleGithubSignIn = () => {
+    providerLogin(githubProvider)
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch(error => console.error(error));
+  };
 
   return (
     <div>
