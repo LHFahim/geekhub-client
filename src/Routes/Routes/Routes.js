@@ -1,5 +1,6 @@
 import { async } from '@firebase/util';
 import { createBrowserRouter } from 'react-router-dom';
+import Checkout from '../../components/Checkout/Checkout';
 import CourseDetails from '../../components/CourseDetails/CourseDetails';
 import Courses from '../../components/Courses/Courses';
 import Main from '../../layout/Main';
@@ -32,6 +33,10 @@ export const routes = createBrowserRouter([
           return fetch(`http://localhost:4000/course-data/${params.id}`);
         },
         element: <CourseDetails />,
+      },
+      {
+        path: '/checkout',
+        element: <Checkout />,
       },
     ],
   },

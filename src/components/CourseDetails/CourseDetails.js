@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const CourseDetails = () => {
   const courseData = useLoaderData();
@@ -14,6 +14,10 @@ const CourseDetails = () => {
       <div className="space-y-5 my-5 w-10/12 mx-auto px-10 py-5 border border-indigo-600">
         <h3 className="text-2xl font-bold"> {name} </h3>
         <p>{description}</p>
+
+        <button className="py-3 px-5 rounded text-white bg-indigo-700">
+          <Link to="/checkout"> Get premium access!</Link>
+        </button>
       </div>
     </div>
   );
