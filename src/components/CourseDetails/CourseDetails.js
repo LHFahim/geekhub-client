@@ -16,7 +16,7 @@ const CourseDetails = () => {
         <p>{description}</p>
 
         <button className="py-3 px-5 rounded text-white bg-indigo-700">
-          <Link to="/checkout"> Get premium access!</Link>
+          <Link to={`/checkout/${id}`}> Get premium access!</Link>
         </button>
       </div>
     </div>

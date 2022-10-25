@@ -8,7 +8,7 @@ const PrivateRoutes = ({ children }) => {
   const location = useLocation();
 
   if (loading) {
-    return <p>Please wait</p>;
+    return <p>Please wait...</p>;
   }
 
   if (!user) {
