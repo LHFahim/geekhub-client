@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <div>
+    <div className="w-11/12 mx-auto">
       <div className="navbar bg-base-100 border border-indigo-600 rounded-3xl">
         <div className="flex-1">
           <Link to="/" className="btn btn-ghost normal-case text-xl">
@@ -49,7 +49,7 @@ const Navbar = () => {
           </>
           <ul className="menu menu-horizontal p-0">
             <li>
-              <Link>Courses</Link>
+              <Link to="/">Courses</Link>
             </li>
 
             <li>

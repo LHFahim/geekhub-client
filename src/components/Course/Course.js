@@ -10,9 +10,9 @@ const Course = ({ course }) => {
       <div>
         <img src={img} alt="" />
       </div>
-      <div>
-        <h3> {name} </h3>
-        <p>{description}</p>
+      <div className="space-y-5 mt-2">
+        <h3 className="text-2xl font-bold"> {name} </h3>
+        <p>{description.substring(0, 150)}...</p>
       </div>
     </div>
   );
