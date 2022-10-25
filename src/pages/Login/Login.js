@@ -104,10 +104,10 @@ const Login = () => {
           </p>
         </form>
         <p>{error}</p>
-        <div className="space-x-5">
+        <div className="flex flex-col md:flex-row space-y-5 md:space-x-5 md:space-y-0">
           <button
             onClick={handleGoogleSignIn}
-            className="py-3 px-5 bg-yellow-300 rounded-2xl"
+            className="py-3 px-5 bg-yellow-800 text-white rounded-2xl"
           >
             Login with Google
           </button>
