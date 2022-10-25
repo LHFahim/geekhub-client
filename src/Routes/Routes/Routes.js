@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Checkout from '../../components/Checkout/Checkout';
 import CourseDetails from '../../components/CourseDetails/CourseDetails';
 import Courses from '../../components/Courses/Courses';
+import Error from '../../components/Error/Error';
 import Main from '../../layout/Main';
 import Login from '../../pages/Login/Login';
 import Register from '../../pages/Login/Register';
@@ -46,5 +47,9 @@ export const routes = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: '*',
+    element: <Error />,
   },
 ]);
