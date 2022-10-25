@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
@@ -46,8 +47,8 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <h1>Register here</h1>
+    <div className="w-6/12 mx-auto mt-10">
+      <h1 className="text-3xl font-bold mb-10">Register here</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-6">
           <label htmlFor="email" className="block mb-2 text-sm font-medium ">
@@ -102,9 +103,17 @@ const Register = () => {
         </div>
 
         <button className="py-2 px-3 bg-indigo-600 rounded text-white">
-          Login
+          Register
         </button>
       </form>
+
+      <p className="my-3">
+        Already have an account? Login{' '}
+        <Link className="text-indigo-800" to="/login">
+          here
+        </Link>{' '}
+      </p>
+
       <p>{error}</p>
     </div>
   );

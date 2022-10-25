@@ -1,6 +1,6 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
@@ -60,9 +60,9 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h1>Login </h1>
-      <div className="w-4/12 ">
+    <div className="w-6/12 mx-auto mt-10">
+      <h1 className="text-3xl font-bold mb-10">Please login </h1>
+      <div>
         <form onSubmit={handleSubmit}>
           <div className="mb-6">
             <label htmlFor="email" className="block mb-2 text-sm font-medium ">
@@ -73,7 +73,7 @@ const Login = () => {
               name="email"
               id="email"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg "
-              placeholder="name@flowbite.com"
+              placeholder="name@gmail.com"
               required
             />
           </div>
@@ -96,9 +96,15 @@ const Login = () => {
           <button className="py-2 px-3 bg-indigo-600 rounded text-white">
             Login
           </button>
+          <p className="my-3">
+            Don't have an account? Register{' '}
+            <Link className="text-indigo-800" to="/register">
+              here
+            </Link>{' '}
+          </p>
         </form>
         <p>{error}</p>
-        <div>
+        <div className="space-x-5">
           <button
             onClick={handleGoogleSignIn}
             className="py-3 px-5 bg-yellow-300 rounded-2xl"

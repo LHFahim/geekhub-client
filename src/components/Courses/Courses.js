@@ -17,7 +17,7 @@ const Courses = () => {
   // console.log(courses);
 
   return (
-    <div className="flex gap-x-10 w-5/6 mx-auto mt-10">
+    <div className="flex flex-col md:flex-row gap-y-10 md:gap-x-10 w-5/6 mx-auto mt-10">
       <div>
         <LeftNav />
       </div>

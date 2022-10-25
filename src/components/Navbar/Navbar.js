@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-11/12 mx-auto">
+    <div className="md:w-11/12 mx-auto">
       <div className="navbar bg-base-100 border border-indigo-600 rounded-3xl">
         <div className="flex-1">
           <Link to="/" className="btn btn-ghost normal-case text-xl">
@@ -57,7 +57,7 @@ const Navbar = () => {
             </li>
 
             <li>
-              <Link>Blog</Link>
+              <Link to="/blog">Blog</Link>
             </li>
 
             <input type="checkbox" className="toggle" />
