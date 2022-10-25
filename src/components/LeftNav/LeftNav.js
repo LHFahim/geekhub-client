@@ -14,7 +14,7 @@ const LeftNav = () => {
     <div className="rounded-xl border p-3 border-indigo-600">
       <ul className="space-y-4">
         {courses.map(course => (
-          <li className=" p-2 rounded hover:bg-indigo-400">
+          <li key={course.id} className=" p-2 rounded hover:bg-indigo-400">
             <Link to={`course/${course.id}`}> {course.name} </Link>
           </li>
         ))}

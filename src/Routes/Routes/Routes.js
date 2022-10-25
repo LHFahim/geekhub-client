@@ -1,4 +1,3 @@
-import { async } from '@firebase/util';
 import { createBrowserRouter } from 'react-router-dom';
 import Checkout from '../../components/Checkout/Checkout';
 import CourseDetails from '../../components/CourseDetails/CourseDetails';
@@ -6,6 +5,7 @@ import Courses from '../../components/Courses/Courses';
 import Main from '../../layout/Main';
 import Login from '../../pages/Login/Login';
 import Register from '../../pages/Login/Register';
+import PrivateRoutes from '../PrivateRoutes/PrivateRoutes';
 
 export const routes = createBrowserRouter([
   {
@@ -36,7 +36,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: '/checkout',
-        element: <Checkout />,
+        element: (
+          <PrivateRoutes>
+            <Checkout />
+          </PrivateRoutes>
+        ),
       },
     ],
   },
