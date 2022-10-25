@@ -14,7 +14,7 @@ const CourseDetails = () => {
 
   return (
     <div>
-      <div ref={ref} style={{ width: 1200 }} className="w-3/4 mx-auto">
+      <div ref={ref} className="w-3/4 mx-auto">
         <h1 className="text-3xl font-bold my-10 text-center">Course details</h1>
         <div className="flex justify-center">
           <img src={img} alt="" />
