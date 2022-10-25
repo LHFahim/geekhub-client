@@ -39,10 +39,6 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
-  const updateUserProfile = profile => {
-    return updateProfile(auth.currentUser, profile);
-  };
-
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
       console.log('inside auth state change', currentUser);
@@ -62,7 +58,6 @@ const AuthProvider = ({ children }) => {
     signIn,
     logOut,
     createUser,
-    updateUserProfile,
   };
 
   return (

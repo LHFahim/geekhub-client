@@ -18,7 +18,7 @@ export const routes = createBrowserRouter([
       {
         path: '/',
         loader: async () => {
-          return fetch('http://localhost:4000/course-data');
+          return fetch('https://geekhub-server.vercel.app/course-data');
         },
         element: <Courses />,
       },
@@ -33,7 +33,9 @@ export const routes = createBrowserRouter([
       {
         path: '/course/:id',
         loader: async ({ params }) => {
-          return fetch(`http://localhost:4000/course-data/${params.id}`);
+          return fetch(
+            `https://geekhub-server.vercel.app/course-data/${params.id}`
+          );
         },
         element: <CourseDetails />,
       },
@@ -48,7 +50,9 @@ export const routes = createBrowserRouter([
       {
         path: '/checkout/:id',
         loader: async ({ params }) => {
-          return fetch(`http://localhost:4000/course-data/${params.id}`);
+          return fetch(
+            `https://geekhub-server.vercel.app/course-data/${params.id}`
+          );
         },
         element: (
           <PrivateRoutes>

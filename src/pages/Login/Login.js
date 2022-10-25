@@ -45,8 +45,13 @@ const Login = () => {
       .then(result => {
         const user = result.user;
         console.log(user);
+        setError('');
+        navigate(from, { replace: true });
       })
-      .catch(error => console.error(error));
+      .catch(error => {
+        console.error(error);
+        setError(error.message);
+      });
   };
 
   // github sign in
@@ -55,8 +60,14 @@ const Login = () => {
       .then(result => {
         const user = result.user;
         console.log(user);
+
+        setError('');
+        navigate(from, { replace: true });
       })
-      .catch(error => console.error(error));
+      .catch(error => {
+        console.error(error);
+        setError(error.message);
+      });
   };
 
   return (

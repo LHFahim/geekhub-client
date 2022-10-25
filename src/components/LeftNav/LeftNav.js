@@ -5,7 +5,7 @@ const LeftNav = () => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:4000/course-data')
+    fetch('https://geekhub-server.vercel.app/course-data')
       .then(res => res.json())
       .then(data => setCourses(data));
   });
